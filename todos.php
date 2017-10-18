@@ -17,9 +17,11 @@
   }
 
 # delete existing todo?
-  $todos = file($data_file);
-  array_splice($todos, $id, 1);
-  file_put_contents($data_file, $todos, FILE_APPEND);
+  if(isset($id)){
+    $todos = file($data_file);
+    array_splice($todos, $id, 1);
+    file_put_contents($data_file, $todos);
+  }
 
 # display todos
   $todos = file($data_file);
